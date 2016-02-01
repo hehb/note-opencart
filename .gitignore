@@ -1,3 +1,5 @@
+/config.php
+/admin/config.php
 /nbproject
 system/storage/cache/*
 system/storage/logs/*
