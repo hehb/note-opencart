@@ -50,6 +50,18 @@ class ControllerExtensionInstaller extends Controller {
 		$this->response->setOutput($this->load->view('extension/installer.tpl', $data));
 	}
 
+	/*
+	https://github.com/opencart/opencart/wiki/Modification-System
+	上传的文件包后缀必须是.ocmod.zip 或.ocmod.xml
+	zip包中的文件结构如下:
+	install.sql
+	install.xml
+	install.php
+	upload/admin/...
+	upload/catalog/...
+	upload/image/...
+	upload/system/...	
+	*/
 	public function upload() {
 		$this->load->language('extension/installer');
 

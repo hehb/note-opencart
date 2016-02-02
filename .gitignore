@@ -3,4 +3,5 @@
 /nbproject
 system/storage/cache/*
 system/storage/logs/*
+image/cache/*
 .idea
