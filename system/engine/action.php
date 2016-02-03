@@ -7,7 +7,15 @@ class Action {
 
 	public function __construct($route, $args = array()) {
 		$parts = explode('/', str_replace('../', '', (string)$route));
-
+		/*
+		对于url为a/b/c/d, 寻找相应的文件
+		如果存在
+		1. c目录下有个d.php,
+		2. b目录下有个c.php, 其中有个d()
+		3. a目录下有个b.php, 其中有个c()
+		那么以哪个为准呢?
+		以1为准, 如果1中的d.php不存在,再找2, 3
+		*/
 		// Break apart the route
 		while ($parts) {
 			$file = DIR_APPLICATION . 'controller/' . implode('/', $parts) . '.php';
@@ -25,7 +33,6 @@ class Action {
 		if (!$this->method) {
 			$this->method = 'index';
 		}
-
 		$this->args = $args;
 	}
 
@@ -48,6 +55,7 @@ class Action {
 				return false;
 			}
 		} else {
+			// 返回false表示出错, 比如找不到文件或指定的方法不存在
 			return false;
 		}
 	}

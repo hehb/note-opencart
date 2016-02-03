@@ -29,6 +29,10 @@
             <div class="panel-body"></div>
           </div>
         </div>
+
+        <!-- 
+        两个地址(账单地址, 发货地址), 两个方法(发货方式, 付款方式), 一个订单确认
+        -->
         <?php if (!$logged && $account != 'guest') { ?>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -48,6 +52,8 @@
           </div>
         </div>
         <?php } ?>
+
+        <!-- 如果需要发货 -->
         <?php if ($shipping_required) { ?>
         <div class="panel panel-default">
           <div class="panel-heading">
